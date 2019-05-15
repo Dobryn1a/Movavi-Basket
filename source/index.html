@@ -2,19 +2,112 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>ArtActive</title>
+    <title>Movavi | Basket</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- <link rel="preload" href="fonts/oswaldmedium.woff2" as="font">
-    <link rel="preload" href="fonts/oswaldregular.woff2" as="font">
-    <link href="css/style.min.css" rel="stylesheet"> -->
+    <!-- <link rel="preload" href="fonts/arial_mt.woff2" as="font">
+    <link rel="preload" href="fonts/arial_bold.woff2" as="font"> -->
+    <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
-      <header>
-      </header>
-      <main>
-      </main>
-      <footer>
-      </footer>
+      <div class="header-container">
+          <header class="header_basket">
+            <img class="header_basket--img" src="img/logo.png" alt="logo-movavi">
+          </header>
+      </div>
+      <div class="main-container">
+          <main class="main_basket">
+            <section class="main_basket--tovars">
+              <div class="main_basket--tovar tovar">
+                <div class="tovar_img">
+                  <img src="img/tovar1.png" alt="packet-programm">
+                </div>
+                <div class="tovar_description">
+                  <h3>Пакет видеопрограмм</h3>
+                  <p>Пакет лучших программ для работы с видео! Редактируйте на монтажном столе. Конвертируйте в любые форматы. Создавайте слайд-шоу. Нарезайте видео. Захватывайте видео с экрана, камер и ТВ-тюнера. Записывайте DVD и диски Blu-ray.</p>
+                </div>
+                <div class="tovar_price">
+                  <p>1990 руб.</p>
+                  <button type="button" data-id="1">В корзину!</button>
+                </div>
+              </div>
+              <div class="main_basket--tovar tovar">
+                <div class="tovar_img">
+                  <img src="img/tovar2.png" alt="packet-programm">
+                </div>
+                <div class="tovar_description">
+                  <h3>Фотостудия Movavi</h3>
+                  <p>Полный набор инструментов для легкой фотообработки. Настраивайте параметры изображения вручную и улучшайте качество автоматически, добавляйте крутые фильтры и надписи. Обрезайте, отражайте и поворачивайте кадр, изменяйте размер фото. Удаляйте с фото лишние объекты и заменяйте скучные фоны. Обрабатывайте папки с фото в пакетном режиме, создавайте слайд-шоу с музыкой и переходами.</p>
+                </div>
+                <div class="tovar_price">
+                  <p>1890 руб.</p>
+                  <button type="button" data-id="2">В корзину!</button>
+                </div>
+              </div>
+              <div class="main_basket--tovar tovar">
+                <div class="tovar_img">
+                  <img src="img/tovar3.png" alt="packet-programm">
+                </div>
+                <div class="tovar_description">
+                  <h3>Movavi Фоторедактор</h3>
+                  <p>Улучшайте качество фото автоматически и вручную. Настраивайте резкость, контраст и цветность. Удаляйте с фотографий объекты, случайно попавшие в кадр. Заменяйте фон изображения. Добавляйте надписи. Выделяйте элементы при помощи удобных
+                    инструментов – кисти, волшебной палочки или лассо. Используйте штамп, чтобы устранять мелкие дефекты изображений.</p>
+                </div>
+                <div class="tovar_price">
+                  <p>990 руб.</p>
+                  <button type="button" data-id="3">В корзину!</button>
+                </div>
+              </div>
+              <div class="main_basket--tovar tovar">
+                <div class="tovar_img">
+                  <img src="img/tovar4.png" alt="packet-programm">
+                </div>
+                <div class="tovar_description">
+                  <h3>Movavi Пакетный фоторедактор</h3>
+                  <p>Обрабатывайте любое количество фотографий одним нажатием кнопки – уменьшайте целые фотоальбомы, переименовывайте файлы, конвертируйте формат и улучшайте качество изображений в пакетном режиме. Теперь вам не придется сохранять каждый файл по отдельности: просто примените изменения ко всем
+                    фото сразу и экспортируйте их с новыми настройками!</p>
+                </div>
+                <div class="tovar_price">
+                  <p>490 руб.</p>
+                  <button type="button" data-id="4">В корзину!</button>
+                </div>
+              </div>
+              <div class="main_basket--tovar tovar">
+                <div class="tovar_img">
+                  <img src="img/tovar5.png" alt="packet-programm">
+                </div>
+                <div class="tovar_description">
+                  <h3>Захват видео с экрана</h3>
+                  <p>Записывайте все, что происходит на экране вашего монитора: видеочаты, работу в программах и интернет-браузерах и многое другое. Сохраняйте скринкасты в любые популярные форматы и для мобильных устройств.</p>
+                </div>
+                <div class="tovar_price">
+                  <p>1490 руб.</p>
+                  <button type="button" data-id="5">В корзину!</button>
+                </div>
+              </div>
+            </section>
+            <section class="main_basket--cart cart">
+              <div class="cart_wrap">
+                <p class="cart_basket">Корзина</p>
+                <div class="cart_content">
+                    <button class="cart_close" type="button"></button>
+                    <p class="cart_content--name">Пакет видеопрограмм</p>
+                    <p class="cart_content--price">1990 руб.</p>
+                </div>
+                <div class="cart_content">
+                  <button class="cart_close" type="button"></button>
+                  <p class="cart_content--name">Пакет видеопрограмм</p>
+                  <p class="cart_content--price">1990 руб.</p>
+                </div>
+                <p class="cart_summ">Всего: <span><a class="cart_summ--price" href="#">4000</a> руб.</span></p>
+                <button class="cart_order" type="button">Оформить заказ</button>
+              </div>
+            </section>
+          </main>
+      </div>
+      <div class="footer-container">
+          <footer class="footer_basket">
+          </footer>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,221 @@
+.main_basket {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tovar {
+  padding-top: 20px;
+  display: flex;
+  width: 700px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $color-line;
+}
+
+.tovar:last-child {
+  border-bottom: none;
+}
+
+.tovar_img {
+  height: 202px;
+  width: 132px;
+}
+
+.tovar_description {
+  padding: 16px 20px;
+  padding-right: 0;
+  width: 352px;
+}
+
+.tovar_description p {
+  padding-top: 20px;
+  margin: 0;
+  font-family: $base-font;
+  font-size: 12px;
+  line-height: 18px;
+  color: $color-text;
+}
+
+.tovar_price {
+  padding-top: 35px;
+}
+
+.tovar_price p {
+  text-align: center;
+  font-size: 24px;
+  font-family: $custome-font;
+  color: $color-black;
+  font-weight: bold;
+}
+
+.tovar_price button {
+  border: none;
+  outline: none;
+  text-align: center;
+  padding: 10px;
+  height: 40px;
+  width: 200px;
+  border-radius: 4px;
+  padding-top: 8px;
+  background-color: $color-blue;
+  color: $color-white;
+  font-size: 20px;
+  font-family: $custome-font;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px $color-black;
+  }
+}
+
+.cart {
+  position: relative;
+}
+
+.cart_wrap {
+  position: sticky;
+  top: 20px;
+  width: 226px;
+  border: 1px solid $color-basket;
+  border-radius: 5px;
+  padding: 15px;
+  padding-right: 12px;
+}
+
+.cart_basket {
+  position: relative;
+  padding-top: 27px;
+  padding-left: 109px;
+  padding-bottom: 57px;
+  font-size: 18px;
+  font-family: $custome-font;
+  color: $color-black;
+  font-weight: bold;
+
+  &::before {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: url('../img/basket.png');
+    background-size: cover;
+    display: inline-block;
+    width: 91px;
+    height: 63px;
+    content: " ";
+  }
+}
+
+.cart_content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+
+  &--name {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 12px;
+    font-family: $base-font;
+    color: $color-black;
+    font-weight: 400;
+  }
+
+  &--price {
+    text-align: right;
+    width: 58px;
+    margin: 0;
+    padding-left: 0px;
+    font-size: 12px;
+    font-family: $custome-font;
+    color: $color-black;
+    font-weight: bold;
+  }
+}
+
+.cart_close {
+  border: none;
+  outline: none;
+  background: transparent;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity: 0.3;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 5px;
+    height: 16px;
+    width: 2px;
+    background-color: #333;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.cart_summ {
+  padding-top: 15px;
+  border-top: 1px solid $color-basket;
+  margin-top: 10px;
+  margin: 0;
+  text-align: right;
+  font-size: 12px;
+  font-family: $base-font;
+  color: $color-black;
+  font-weight: 400;
+
+  a {
+    text-decoration: none;
+    color: $color-black;
+  }
+
+  & span {
+    font-size: 12px;
+    font-family: $custome-font;
+    color: $color-black;
+    font-weight: bold;
+  }
+}
+
+.cart_order {
+  border: none;
+  outline: none;
+  text-align: center;
+  padding: 10px;
+  height: 40px;
+  width: 200px;
+  padding-top: 8px;
+  border-radius: 4px;
+  margin-top: 30px;
+  background-color: $color-green;
+  color: $color-white;
+  font-size: 18px;
+  font-family: $custome-font;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px $color-black;
+  }
+}

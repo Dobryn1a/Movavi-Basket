@@ -1,15 +1,15 @@
 @font-face {
-  font-family: "Oswald";
-  src: url("../fonts/oswaldmedium.woff2") format("woff2"), url("../fonts/oswaldmedium.woff") format("woff");
-  font-weight: 500;
+  font-family: "Arial";
+  src: url("../fonts/arial_bold.woff2") format("woff2");
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Oswald";
-  src: url("../fonts/oswaldregular.woff2") format("woff2"), url("../fonts/oswaldregular.woff") format("woff");
-  font-weight: normal;
+  font-family: "Arial MT";
+  src: url("../fonts/arial_mt.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }

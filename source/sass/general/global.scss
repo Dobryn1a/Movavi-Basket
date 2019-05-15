@@ -34,8 +34,38 @@ input[type="radio"] .visually-hidden {
   overflow: hidden;
 }
 
-@media (min-width: $tablet-width) {
+.header-container {
+  margin: 0 auto;
+  background-color: $color-black;
 }
 
-@media (min-width: $desktop-width) {
+.main-container {
+  margin: 0 auto;
+  background-color: $color-white;
 }
+
+.footer-container {
+  margin: 0 auto;
+  background-color: $color-footer;
+}
+
+.header_basket,
+.main_basket,
+.footer_basket {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+h3 {
+  margin: 0;
+  font-family: $custome-font;
+  font-size: 18px;
+  line-height: 18px;
+  color: $color-black;
+}
+
+// @media (min-width: $tablet-width) {
+// }
+
+// @media (min-width: $desktop-width) {
+// }
