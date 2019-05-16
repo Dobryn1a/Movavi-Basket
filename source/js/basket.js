@@ -3,18 +3,13 @@ openCart();
 var d = document;
 var tovar = d.querySelectorAll('.tovar'); // каждый товар в отдельности
 
-function addEvent(elem, type, handler) {
-    if (!elem) {
-        return false;
-    }
-    if (window.addEventListener) {
-        elem.addEventListener(type, handler, false);
-    } else {
-        elem.attachEvent('on' + type, function() {
-            handler.call(elem);
-        });
-    }
-    return false;
+function addEvent(elem, type, handler){
+  if(elem.addEventListener){
+    elem.addEventListener(type, handler, false);
+  } else {
+    elem.attachEvent('on'+type, function(){ handler.call(elem); });
+  }
+  return false;
 }
 // Получаем данные из LocalStorage
 function getCartData(){
@@ -36,14 +31,15 @@ function addToCart(e){
         itemTitle = parentItems.querySelector('.js-title').innerHTML, // название товара
         itemPrice = parentItems.querySelector('.tovar_price--item').innerHTML; // стоимость товара
     if(cartData.hasOwnProperty(itemId)){ // если такой товар уже в корзине, то добавляем +1 к его количеству
-      cartData[itemId][2] += 1;
+      cartData[itemId][3] += 1;
     } else { // если товара в корзине еще нет, то добавляем в объект
       cartData[itemId] = [itemId, itemTitle, itemPrice, 1];
     }
     if(!setCartData(cartData)){ // Обновляем данные в LocalStorage
       this.disabled = false; // разблокируем кнопку после обновления LS
     }
-   return false;
+  location.reload();
+  return false;
 }
 // Устанавливаем обработчик события на каждую кнопку "Добавить в корзину"
 for(var i = 0; i < tovar.length; i++){
@@ -58,7 +54,7 @@ function openCart(e){
     // если что-то в корзине уже есть, начинаем формировать данные для вывода
     if(cartData !== null){
       for(var items in cartData){
-        totalItems += '<div class="cart_content">' + 
+        totalItems += '<div class="cart_content">' +
         '<button class="cart_close" data-delete="' + cartData[items][0] + '" type="button"></button>' +
         '<p class="cart_content--name">' + cartData[items][1] + '</p>' +
         '<p class="cart_content--price"><span class="js-price">' + cartData[items][2] + '</span> руб.</p>' +
@@ -71,7 +67,24 @@ function openCart(e){
     }
     return false;
 }
-/* Очистить корзину */
-addEvent(d.getElementById('order'), 'click', function(e){
-  localStorage.removeItem('cart');
-});
+
+addEvent(document.getElementById('js-carts'), 'click', function(e){
+	if(e.target.className === 'cart_close') {
+    var itemId = e.target.getAttribute('data-delete');
+		cartData = getCartData();
+		if(cartData.hasOwnProperty(itemId)){
+			var del = e.target.closest('div');
+			del.parentNode.removeChild(del); /* Удаляем строку товара из таблицы */
+      var totalSumOutput = document.getElementById('js-summ'); // пересчитываем общую сумму и цену
+      totalSumOutput.textContent = +totalSumOutput.textContent - cartData[itemId][2] * 1;
+			delete cartData[itemId]; // удаляем товар из объекта
+			setCartData(cartData); // перезаписываем измененные данные в localStorage
+		}
+	}
+}, false);
+
+// Очистить корзину Специально сделано, что бы при нажатии на "Оформить заказ" отчищалось хранилище, просто для удобства
+// addEvent(d.getElementById('order'), 'click', function(e){
+//   localStorage.removeItem('cart');
+//   location.reload();
+// });
