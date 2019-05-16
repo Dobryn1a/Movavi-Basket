@@ -102,6 +102,7 @@ gulp.task("server", function () {
 
   gulp.watch("source/sass/**/*.{scss,sass}", gulp.series("css"));
   gulp.watch("source/*.html").on("change", server.reload);
+  gulp.watch("source/js/*.js").on("change", server.reload);
 });
 
 gulp.task("start", gulp.series("css", "server"));
