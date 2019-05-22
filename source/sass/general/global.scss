@@ -64,6 +64,18 @@ h3 {
   color: $color-black;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.sticky:before,
+.sticky:after {
+    content: '';
+    display: table;
+}
+
 // @media (min-width: $tablet-width) {
 // }
 
