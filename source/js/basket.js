@@ -44,6 +44,9 @@ function setCartData(o){
 // Добавляем товар в корзину
 function addToCart(e){
     this.disabled = true; // блокируем кнопку на время операции с корзиной
+    if(this.disabled == true){
+      this.classList.toggle('disabled');
+    }
     var cartData = getCartData() || {}; // получаем данные корзины или создаём новый объект, если данных еще нет
     var parentBox = this.parentNode; // родительский элемент кнопки "Добавить в корзину"
     var parentItems = parentBox.parentNode; // родительский элемент блока корзины, вообще как то не оч.
@@ -56,7 +59,7 @@ function addToCart(e){
       cartData[itemId] = [itemId, itemTitle, itemPrice, 1];
     }
     if(!setCartData(cartData)){ // Обновляем данные в LocalStorage
-      this.disabled = false; // разблокируем кнопку после обновления LS
+      // this.disabled = false; // разблокируем кнопку после обновления LS, решил оставить дисаблед, т.к. количество товаров не выводим
     }
   return false;
 }
@@ -89,17 +92,21 @@ for(var i = 0; i < tovar.length; i++){
     addEvent(tovar[i].querySelector('.js-add_item'), 'click', openCart);
 }
 
+// Удаление товара из корзины
 addEvent(document.getElementById('js-carts'), 'click', function(e){
 	if(e.target.className === 'cart_close') {
     var itemId = e.target.getAttribute('data-delete');
 		cartData = getCartData();
 		if(cartData.hasOwnProperty(itemId)){
+      var dis = document.querySelector('.js-add_item[data-id="' + itemId + '"]');
+      dis.disabled = false; // при удалении товара из карзины обратно возвращаем кнопку
+      dis.classList.remove('disabled');
       var del = e.target.closest('div');
 			del.parentNode.removeChild(del); /* Удаляем строку товара из таблицы */
       var totalSumOutput = document.getElementById('js-summ'); // пересчитываем общую сумму и цену
       totalSumOutput.textContent = +totalSumOutput.textContent - cartData[itemId][2] * 1;
 			delete cartData[itemId]; // удаляем товар из объекта
-			setCartData(cartData); // перезаписываем измененные данные в localStorage
+      setCartData(cartData); // перезаписываем измененные данные в localStorage
 		}
 	}
 }, false);

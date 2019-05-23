@@ -71,6 +71,12 @@
   &:hover {
     box-shadow: 0 0 10px $color-black;
   }
+
+  &:disabled {
+    background-color: $color-grey;
+    box-shadow: none;
+    cursor: auto;
+  }
 }
 
 .cart {
